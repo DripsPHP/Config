@@ -1,0 +1,15 @@
+{
+    "name": "drips/config",
+    "description": "Konfigurationssystem von Drips.",
+    "keywords": ["config", "configuration"],
+    "license": "MIT",
+    "require": {
+        "php": ">=5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Drips\\Config\\": "src"
+        }
+    },
+    "minimum-stability": "dev"
+}
