@@ -4,32 +4,45 @@
 [![Code Climate](https://codeclimate.com/github/Prowect/Config/badges/gpa.svg)](https://codeclimate.com/github/Prowect/Config)
 [![Test Coverage](https://codeclimate.com/github/Prowect/Config/badges/coverage.svg)](https://codeclimate.com/github/Prowect/Config/coverage)
 
-# Config
+## Beschreibung
 
-zum Konfigurieren der Datenbankeinstellungen
+Mithilfe der Config-Klasse kann einheitlich auf die Konfiguration eines Systems zugegriffen werden.
 
-## Beispiel
+## Konfiguration hinzufügen
+
+Mithilfe von `Config::set()` lässt sich ein neuer Konfigurationseintrag erstellen:
+
 ```php
 <?php
+use Drips\Config\Config;
 
-//Zuweisung der Zugangsvariablen
-$key = 'key';
-$value = 'value';
-
-set($key, $value);
-
-
-//Überprüfung, ob $key existiert
-if(Config::has($key)){
-// $key wurde bereits zugewiesen
-}else{
- // $key wurde noch nicht zugewiesen
-}
-
-
-//Auslesen
-Config::get($key);
-//$collection['key'] = 'key';
-//$collection['value'] = 'value';
+Config::set('my_config_option', 'my_config_value');
 ```
-`get()` kann auch ohne Parameter aufgerufen werden. In diesem Fall wird ein Standardwert übernommen.
+
+## Konfiguration auslesen
+
+Daten aus der Konfiguration können wie folgt abgefragt werden:
+
+```php
+<?php
+use Drips\Config\Config;
+
+Config::get('my_config_option', 'default_value');
+```
+
+> Ist kein Eintrag für `my_config_option` vorhanden, so wird der `default_value` verwendet. Der Default-Wert ist optional und kann somit auch weggelassen werden.
+
+## Konfiguration überprüfen
+
+Mithilfe der `has`-Methode kann überprüft werden, ob eine Option in der Konfiguration vorhanden ist:
+
+```php
+<?php
+use Drips\Config\Config;
+
+if(Config::has('my_config_option')){
+    // my_config_option existiert
+} else {
+    // my_config_option existiert nicht
+}
+```
