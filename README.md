@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/Prowect/Config.svg)](https://travis-ci.org/Prowect/Config)
 [![Code Climate](https://codeclimate.com/github/Prowect/Config/badges/gpa.svg)](https://codeclimate.com/github/Prowect/Config)
 [![Test Coverage](https://codeclimate.com/github/Prowect/Config/badges/coverage.svg)](https://codeclimate.com/github/Prowect/Config/coverage)
+[![Latest Release](https://img.shields.io/packagist/v/drips/Config.svg)](https://packagist.org/packages/drips/config)
+
 
 ## Beschreibung
 
@@ -46,3 +48,5 @@ if(Config::has('my_config_option')){
     // my_config_option existiert nicht
 }
 ```
+
+> **Anmerkung:** die Konfiguration wird nur während der Laufzeit gespeichert. Um die Konfiguration dauerhaft (z.B.: in einer Datei) zu speichern muss die Konfiguration zuerst in eine Datei geschrieben und anschließend wieder ausgelesen werden. Hierfür kann `Config::getAll()` verwendet werden.
